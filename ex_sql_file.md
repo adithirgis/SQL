@@ -2,7 +2,7 @@
 
 ## A. Data Definition Language (DDL)
 
-### 1?????? CREATE TABLE - Creates a new table.
+### 1. CREATE TABLE - Creates a new table.
 ```sql
 CREATE TABLE employees (
     id INT PRIMARY KEY,
@@ -14,95 +14,95 @@ CREATE TABLE employees (
 );
 ```
 
-### 2?????? ALTER TABLE - Modifies an existing table.
+### 2. ALTER TABLE - Modifies an existing table.
 ```sql
 ALTER TABLE employees ADD COLUMN email VARCHAR(100);
 ```
 
-### 3?????? DROP TABLE - Deletes a table permanently.
+### 3. DROP TABLE - Deletes a table permanently.
 ```sql
 DROP TABLE employees;
 ```
 
-### 4?????? TRUNCATE TABLE - Deletes all records but keeps the structure.
+### 4. TRUNCATE TABLE - Deletes all records but keeps the structure.
 ```sql
 TRUNCATE TABLE employees;
 ```
 
 ## B. Data Manipulation Language (DML)
 
-### 5?????? INSERT INTO - Adds records into a table.
+### 5. INSERT INTO - Adds records into a table.
 ```sql
 INSERT INTO employees (id, name, age, department, salary, joining_date)
 VALUES (1, 'Alice', 25, 'HR', 50000, '2020-03-15');
 ```
 
-### 6?????? UPDATE - Modifies existing records.
+### 6. UPDATE - Modifies existing records.
 ```sql
 UPDATE employees SET salary = 75000 WHERE id = 2;
 ```
 
-### 7?????? DELETE FROM - Removes records.
+### 7. DELETE FROM - Removes records.
 ```sql
 DELETE FROM employees WHERE id = 5;
 ```
 
 ## C. Data Query Language (DQL)
 
-### 8?????? SELECT - Retrieves data from the table.
+### 8. SELECT - Retrieves data from the table.
 ```sql
 SELECT * FROM employees;
 ```
 
-### 9?????? WHERE Clause - Filters records.
+### 9. WHERE Clause - Filters records.
 ```sql
 SELECT name, department FROM employees WHERE age > 30;
 ```
 
-### ???? ORDER BY - Sorts records.
+### 10. ORDER BY - Sorts records.
 ```sql
 SELECT * FROM employees ORDER BY salary DESC;
 ```
 
-### 1??????1?????? GROUP BY & HAVING - Groups results and filters aggregated values.
+### 11. GROUP BY & HAVING - Groups results and filters aggregated values.
 ```sql
 SELECT department, AVG(salary) FROM employees GROUP BY department HAVING AVG(salary) > 60000;
 ```
 
-### 1??????2?????? LIMIT - Restricts the number of rows returned.
+### 12. LIMIT - Restricts the number of rows returned.
 ```sql
 SELECT * FROM employees LIMIT 3;
 ```
 
 ## D. Data Control Language (DCL)
 
-### 1??????3?????? GRANT - Gives privileges.
+### 13. GRANT - Gives privileges.
 ```sql
 GRANT SELECT, INSERT ON employees TO 'user1';
 ```
 
-### 1??????4?????? REVOKE - Removes privileges.
+### 14. REVOKE - Removes privileges.
 ```sql
 REVOKE INSERT ON employees FROM 'user1';
 ```
 
 ## E. Transaction Control Language (TCL)
 
-### 1??????5?????? COMMIT - Saves a transaction permanently.
+### 15. COMMIT - Saves a transaction permanently.
 ```sql
 BEGIN;
 UPDATE employees SET salary = 60000 WHERE department = 'HR';
 COMMIT;
 ```
 
-### 1??????6?????? ROLLBACK - Undoes a transaction.
+### 16. ROLLBACK - Undoes a transaction.
 ```sql
 BEGIN;
 DELETE FROM employees WHERE department = 'Sales';
 ROLLBACK;
 ```
 
-### 1??????7?????? SAVEPOINT - Creates a save point in a transaction.
+### 17. SAVEPOINT - Creates a save point in a transaction.
 ```sql
 SAVEPOINT before_update;
 UPDATE employees SET salary = 90000 WHERE id = 3;
@@ -111,7 +111,7 @@ ROLLBACK TO before_update;
 
 ## F. Advanced SQL Queries
 
-### 1??????8?????? JOINs
+### 18. JOINs
 
 #### INNER JOIN (Returns matching records from both tables)
 ```sql
@@ -134,12 +134,12 @@ FROM employees
 RIGHT JOIN departments ON employees.department = departments.id;
 ```
 
-### 1??????9?????? Subqueries
+### 19. Subqueries
 ```sql
 SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);
 ```
 
-### 2??????0?????? CASE Statement
+### 20. CASE Statement
 ```sql
 SELECT name, salary,
     CASE 
@@ -150,7 +150,7 @@ SELECT name, salary,
 FROM employees;
 ```
 
-## 4. Practice Dataset
+## 21. Practice Dataset
 You can create and populate this dataset in any SQL database:
 
 ```sql
