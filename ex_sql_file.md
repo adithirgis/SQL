@@ -1,9 +1,9 @@
-A. Data Definition Language (DDL)
-CREATE TABLE - Creates a new table.
+# SQL Tutorial
 
-sql
-Copy
-Edit
+## A. Data Definition Language (DDL)
+
+### 1?????? CREATE TABLE - Creates a new table.
+```sql
 CREATE TABLE employees (
     id INT PRIMARY KEY,
     name VARCHAR(50),
@@ -12,151 +12,135 @@ CREATE TABLE employees (
     salary DECIMAL(10,2),
     joining_date DATE
 );
-ALTER TABLE - Modifies an existing table.
+```
 
-sql
-Copy
-Edit
+### 2?????? ALTER TABLE - Modifies an existing table.
+```sql
 ALTER TABLE employees ADD COLUMN email VARCHAR(100);
-DROP TABLE - Deletes a table permanently.
+```
 
-sql
-Copy
-Edit
+### 3?????? DROP TABLE - Deletes a table permanently.
+```sql
 DROP TABLE employees;
-TRUNCATE TABLE - Deletes all records but keeps the structure.
+```
 
-sql
-Copy
-Edit
+### 4?????? TRUNCATE TABLE - Deletes all records but keeps the structure.
+```sql
 TRUNCATE TABLE employees;
-B. Data Manipulation Language (DML)
-INSERT INTO - Adds records into a table.
+```
 
-sql
-Copy
-Edit
+## B. Data Manipulation Language (DML)
+
+### 5?????? INSERT INTO - Adds records into a table.
+```sql
 INSERT INTO employees (id, name, age, department, salary, joining_date)
 VALUES (1, 'Alice', 25, 'HR', 50000, '2020-03-15');
-UPDATE - Modifies existing records.
+```
 
-sql
-Copy
-Edit
+### 6?????? UPDATE - Modifies existing records.
+```sql
 UPDATE employees SET salary = 75000 WHERE id = 2;
-DELETE FROM - Removes records.
+```
 
-sql
-Copy
-Edit
+### 7?????? DELETE FROM - Removes records.
+```sql
 DELETE FROM employees WHERE id = 5;
-C. Data Query Language (DQL)
-SELECT - Retrieves data from the table.
+```
 
-sql
-Copy
-Edit
+## C. Data Query Language (DQL)
+
+### 8?????? SELECT - Retrieves data from the table.
+```sql
 SELECT * FROM employees;
-WHERE Clause - Filters records.
+```
 
-sql
-Copy
-Edit
+### 9?????? WHERE Clause - Filters records.
+```sql
 SELECT name, department FROM employees WHERE age > 30;
-ORDER BY - Sorts records.
+```
 
-sql
-Copy
-Edit
+### ???? ORDER BY - Sorts records.
+```sql
 SELECT * FROM employees ORDER BY salary DESC;
-GROUP BY & HAVING - Groups results and filters aggregated values.
+```
 
-sql
-Copy
-Edit
+### 1??????1?????? GROUP BY & HAVING - Groups results and filters aggregated values.
+```sql
 SELECT department, AVG(salary) FROM employees GROUP BY department HAVING AVG(salary) > 60000;
-LIMIT - Restricts the number of rows returned.
+```
 
-sql
-Copy
-Edit
+### 1??????2?????? LIMIT - Restricts the number of rows returned.
+```sql
 SELECT * FROM employees LIMIT 3;
-D. Data Control Language (DCL)
-GRANT - Gives privileges.
+```
 
-sql
-Copy
-Edit
+## D. Data Control Language (DCL)
+
+### 1??????3?????? GRANT - Gives privileges.
+```sql
 GRANT SELECT, INSERT ON employees TO 'user1';
-REVOKE - Removes privileges.
+```
 
-sql
-Copy
-Edit
+### 1??????4?????? REVOKE - Removes privileges.
+```sql
 REVOKE INSERT ON employees FROM 'user1';
-E. Transaction Control Language (TCL)
-COMMIT - Saves a transaction permanently.
+```
 
-sql
-Copy
-Edit
+## E. Transaction Control Language (TCL)
+
+### 1??????5?????? COMMIT - Saves a transaction permanently.
+```sql
 BEGIN;
 UPDATE employees SET salary = 60000 WHERE department = 'HR';
 COMMIT;
-ROLLBACK - Undoes a transaction.
+```
 
-sql
-Copy
-Edit
+### 1??????6?????? ROLLBACK - Undoes a transaction.
+```sql
 BEGIN;
 DELETE FROM employees WHERE department = 'Sales';
 ROLLBACK;
-SAVEPOINT - Creates a save point in a transaction.
+```
 
-sql
-Copy
-Edit
+### 1??????7?????? SAVEPOINT - Creates a save point in a transaction.
+```sql
 SAVEPOINT before_update;
 UPDATE employees SET salary = 90000 WHERE id = 3;
 ROLLBACK TO before_update;
-F. Advanced SQL Queries
-JOINs
+```
 
-INNER JOIN (Returns matching records from both tables)
+## F. Advanced SQL Queries
 
-sql
-Copy
-Edit
+### 1??????8?????? JOINs
+
+#### INNER JOIN (Returns matching records from both tables)
+```sql
 SELECT employees.name, departments.department_name
 FROM employees
 INNER JOIN departments ON employees.department = departments.id;
-LEFT JOIN (Returns all records from left table, matched ones from right)
+```
 
-sql
-Copy
-Edit
+#### LEFT JOIN (Returns all records from left table, matched ones from right)
+```sql
 SELECT employees.name, departments.department_name
 FROM employees
 LEFT JOIN departments ON employees.department = departments.id;
-RIGHT JOIN (Returns all records from right table, matched ones from left)
+```
 
-sql
-Copy
-Edit
+#### RIGHT JOIN (Returns all records from right table, matched ones from left)
+```sql
 SELECT employees.name, departments.department_name
 FROM employees
 RIGHT JOIN departments ON employees.department = departments.id;
-Subqueries
+```
 
-sql
-Copy
-Edit
+### 1??????9?????? Subqueries
+```sql
 SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);
-CASE Statement
+```
 
-sql
-Copy
-Edit
+### 2??????0?????? CASE Statement
+```sql
 SELECT name, salary,
     CASE 
         WHEN salary > 70000 THEN 'High'
@@ -164,12 +148,12 @@ SELECT name, salary,
         ELSE 'Low'
     END AS salary_category
 FROM employees;
-4. Practice Dataset
+```
+
+## 4. Practice Dataset
 You can create and populate this dataset in any SQL database:
 
-sql
-Copy
-Edit
+```sql
 CREATE TABLE employees (
     id INT PRIMARY KEY,
     name VARCHAR(50),
